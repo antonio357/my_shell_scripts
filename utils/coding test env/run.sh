@@ -3,10 +3,8 @@
 g++ algo.cpp -o algo.out;
 echo "compiled";
 
-if [ -z results ]; then
-    rm results/*
-    echo "removed old results"
-fi
+rm results/*
+echo "removed old results"
 
 for file in `ls test_cases | grep -v "expected_" | sort`; do
     result_file="result_"
@@ -16,10 +14,8 @@ for file in `ls test_cases | grep -v "expected_" | sort`; do
 done
 echo "added new results";
 
-if [ -z diffs ]; then
-    rm diffs/*
-    echo "removed old diffs"
-fi
+rm diffs/*
+echo "removed old diffs"
 
 echo "running diff";
 for file in `ls test_cases | grep "expected_" | sort`; do
