@@ -21,5 +21,6 @@ touch test_cases/$new_test_case_name
 touch test_cases/$new_test_case_name_expected
 
 echo "ignore this message"
+# kate is the text editor, you can change it for whatever you want
 kate -n test_cases/$new_test_case_name test_cases/$new_test_case_name_expected
 echo "ignore this message"

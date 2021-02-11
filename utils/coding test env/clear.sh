@@ -1,21 +1,20 @@
 #!/bin/bash
 
-test_cases="test_cases"
+echo "are you sure, its gona remove all teste cases as well"
+echo "continue / cancel : y / n"
+read arg
 
-if [ $1 == $test_cases ]; then
-    for dir in `ls test_cases -p | grep /`; do
-        if [ -z $dir ]; then
-            dir=`echo ${dir/'/'/}`
-            rm $dir/*
-        fi
-    done
-    echo "all directories were cleared"
-else
-    for dir in `ls test_cases -p | grep / | grep -v "test_cases"`; do
-        if [ -z $dir ]; then
-            dir=`echo ${dir/'/'/}`
-            rm $dir/*
-        fi
-    done
-    echo "all directories were cleared, except test_cases/"
-fi
+case $arg in
+    "y")
+        for dir in `ls test_cases -p | grep /`; do
+            if [ -z $dir ]; then
+                dir=`echo ${dir/'/'/}`
+                rm $dir/*
+            fi
+        done
+        echo "all directories were cleared"
+    ;;
+    "n")
+        echo "canceled"
+    ;;
+esac

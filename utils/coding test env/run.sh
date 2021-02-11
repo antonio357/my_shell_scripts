@@ -1,6 +1,6 @@
 #!/bin/bash
 
-g++ algo.cpp -o algo.out;
+g++ main.cpp -o main.out;
 echo "compiled";
 
 rm results/*
@@ -10,7 +10,7 @@ for file in `ls test_cases | grep -v "expected_" | sort`; do
     result_file="result_"
     result_file+=$file
     echo "time $result_file"
-    cat test_cases/$file | time ./algo.out >> results/$result_file
+    cat test_cases/$file | time ./main.out >> results/$result_file
 done
 echo "added new results";
 
