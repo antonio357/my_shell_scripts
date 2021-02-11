@@ -6,11 +6,10 @@ read arg
 
 case $arg in
     "y")
-        for dir in `ls test_cases -p | grep /`; do
-            if [ -z $dir ]; then
-                dir=`echo ${dir/'/'/}`
-                rm $dir/*
-            fi
+        for dir in `ls -p | grep /`; do
+            dir=`echo ${dir/'/'/}`
+            rm $dir/*
+            echo "$dir/*"
         done
         echo "all directories were cleared"
     ;;
